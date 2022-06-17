@@ -1,0 +1,86 @@
+@import '../../src/styles/index';
+
+
+$default_margin: 22px 44px;
+
+
+.landing {
+  &__bannerContainer {
+    padding-top: 80px;
+    text-align: center;
+  }
+  &__eclipse-wrapper {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+  }
+  &__graphs-wrapper {
+    width: 430px;
+  }
+  &__key-insights {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__key-insights-text {
+    width: 620px;
+  }
+  &__get-involved-text {
+    width: 620px;
+  }
+  &__categories-list {
+    @include get-font(text);
+    font-size: 18px;
+    color: gc(gL);
+    margin-left: 70px;
+    line-height: 32px;
+    cursor: pointer;
+  }
+
+  &__bannerText {
+    text-transform: capitalize;
+    &--padding {
+      padding-top: 40px;
+    }
+  }
+
+  &__defaultMargin {
+    margin: $default_margin
+  }
+
+  &__featureSectionText {
+    margin: 0 88px 0 88px;
+    text-align: center;
+  }
+
+  &__centered-text-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__centered-text {
+    text-align: center;
+  }
+
+  &__network-logos-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  &__network-logos {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 88px 88px 88px 88px;
+    grid-template-rows: 88px 88px;
+    column-gap: 40px;
+    row-gap: 40px;
+    justify-items: center;
+  }
+
+  &__blurriedNumbers {
+    width: 117px;
+    height: 237px;
+    font-size: 206px;
+    z-index: 0;
+    filter: blur(11px);
+  }
+}

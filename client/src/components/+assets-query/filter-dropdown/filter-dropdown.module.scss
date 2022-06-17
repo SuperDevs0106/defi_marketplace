@@ -1,0 +1,204 @@
+@import '../../../styles/index';
+$w: 20em;
+$h: 1em;
+
+.wrap {
+  display: grid;
+  grid-template-rows: max-content $h;
+  margin: 1em auto;
+  width: $w;
+  overflow: hidden; // in case <label> elements overflow
+  position: relative;
+}
+
+.sr-only {
+  position: absolute;
+  clip-path: inset(50%);
+}
+//
+//input[type='range'] {
+//  grid-column: 1;
+//  grid-row: 2;
+//}
+
+@mixin track() {
+  background: none; /* get rid of Firefox track background */
+  height: 100%;
+  width: 100%;
+}
+
+@mixin thumb() {
+  background: currentcolor;
+  border: none; /* get rid of Firefox thumb border */
+  border-radius: 0; /* get rid of Firefox corner rounding */
+  pointer-events: auto; /* catch clicks */
+  width: $h;
+  height: $h;
+}
+
+.wrap {
+  /* same as before */
+  background: /* emulate track with wrapper background */ linear-gradient(
+    0deg,
+    #ccc $h,
+    transparent 0
+  );
+}
+
+.filter-dropdown {
+  &__wrapper {
+    background: gc(bg);
+    border: 1px solid gc(gM);
+    display: flex;
+    justify-content: space-between;
+
+    
+
+    input[type='range'] {
+      // &::-webkit-slider-runnable-track,
+      // &::-webkit-slider-thumb,
+      // & {
+      //   -webkit-appearance: none;
+      // }
+
+      /* same as before */
+      background: none; /* get rid of white Chrome background */
+      color: blue;
+      font: inherit; /* fix too small font-size in both Chrome & Firefox */
+      margin: 0;
+      pointer-events: none; /* let clicks pass through */
+      width: 100%;
+
+      &::-webkit-slider-runnable-track {
+        @include track;
+      }
+      &::-moz-range-track {
+        @include track;
+      }
+
+      &::-webkit-slider-thumb {
+        @include thumb;
+      }
+      &::-moz-range-thumb {
+        @include thumb;
+      }
+    }
+
+    input[type='date'] {
+      &::-webkit-datetime-edit {
+        background: #2b465c;
+        color: #8aaabe;
+        padding: 6%;
+        width:50px
+      }
+
+      &::-webkit-datetime-edit-fields-wrapper {
+        background: #2b465c;
+        
+      }
+      &::-webkit-datetime-edit-text {
+        color: #8aaabe;
+      }
+      &::-webkit-datetime-edit-day-field {
+        color: #8aaabe;
+        padding: 0;
+      }
+
+      &::-webkit-datetime-edit-month-field {
+        color: #8aaabe;
+        padding: 0;
+      }
+      &::-webkit-datetime-edit-year-field {
+        color: #8aaabe;
+        padding: 0;
+      }
+      &::-webkit-calendar-picker-indicator {
+        background-image: url('../../../../public/assets/calendar.svg');
+      }
+    }
+
+    span {
+      margin: 15px 15px 15px 0;
+    }
+  }
+
+  &__filter-container{
+    display:flex;
+    flex-direction: column;
+    width:300px;
+    padding:10px
+  }
+
+  &__picker {
+    background-color: #2b465c;
+    border: none;
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    padding-bottom: 10px;
+  }
+
+  &__date-pickers {
+    display: flex;
+  }
+
+  &__vertical-divider {
+    border-left: 1px solid gc(gL);
+    height: 50px;
+  }
+
+  &__filters-text {
+    font-size: 11.5752px;
+    line-height: 13px;
+    text-transform: uppercase;
+    color: #d0f2ff;
+  }
+
+  &__network-selector-container {
+    display: flex;
+    flex-wrap: wrap;
+    width:250px;
+    justify-content: space-around;
+  }
+  
+  &__network-selector-box {
+    margin:5px;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 5px;
+    cursor: pointer;
+    color: #8AAABE;
+    
+    background: #2B465C;
+   
+    &--selected{
+      background: #67CEF9;
+      color:#132D43;
+    }
+  }
+
+  &__ranges-limits{
+    padding-bottom: 10px;
+
+    span{
+      color: #8AAABE;
+      margin:0;
+      font-size: 14px;
+      justify-items: center;
+      align-items: center;
+    }
+
+    label{
+      padding: 5px;
+      background: #2B465C;
+    }
+  }
+
+  &__range-bar{
+    background-color: red;
+  }
+
+}
